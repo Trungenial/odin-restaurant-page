@@ -15,6 +15,14 @@ module.exports = {
             template: "./src/template.html",
             filename: "index.html",
         }),
+        new HtmlWebpackPlugin({
+            template: "./src/menu.html",
+            filename: "menu.html",
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/about.html",
+            filename: "about.html",
+        }),
     ],
     module: {
         rules: [
