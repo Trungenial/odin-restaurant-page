@@ -1,3 +1,4 @@
+import { initGoogleMaps } from "./google-maps";
 import "./styles.css";
 
 const homeBtn = document.querySelector("#home-btn");
@@ -88,4 +89,64 @@ homeBtn.addEventListener("click", () => {
 
         fadeIn();
     }
+});
+
+aboutBtn.addEventListener("click", () => {
+    if (!content.classList.contains("about")) {
+        if (content.classList.contains("menu")) {
+            content.classList.replace("menu", "about");
+            menuBtn.classList.remove("current-bar");
+        } else if (content.classList.contains("home")) {
+            content.classList.replace("home", "about");
+            homeBtn.classList.remove("current-bar");
+        }
+
+        aboutBtn.classList.add("current-bar");
+
+        menuBtn.disabled = false;
+        homeBtn.disabled = false;
+        aboutBtn.disabled = true;
+
+        content.innerHTML = `
+            <h4>📞 123 456 789</h4>
+            <h4>🏠 Việt Nam</h4>
+            <div id="map"></div>
+        `;
+
+        fadeIn();
+    }
+});
+
+aboutBtn.addEventListener("click", () => {
+    initGoogleMaps(process.env.GOOGLE_MAPS_API_KEY, "map")
+        .then((map) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const userLatLng = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        map.setCenter(userLatLng);
+                        new google.maps.Marker({
+                            position: userLatLng,
+                            map: map,
+                            title: "Your Location",
+                        });
+                    },
+                    (error) => {
+                        console.error("Error getting location:", error);
+                        alert(
+                            "Unable to retrieve your location. Please ensure location services are enabled."
+                        );
+                    }
+                );
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+                alert("Geolocation is not supported by your browser.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error initializing Google Maps:", error);
+        });
 });

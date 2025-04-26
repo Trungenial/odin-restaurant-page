@@ -69,12 +69,13 @@ header {
 
 #content {
     width: 800px;
+    min-height: 700px;
     color: white;
     background-color: rgba(0, 0, 0, 0.52);
     margin: 4rem auto;
 }
 
-#content * {
+#content > * {
     opacity: 0.5;
     transition: opacity 1.5s;
 }
@@ -147,4 +148,19 @@ footer {
     object-fit: cover;
     flex-grow: 1;
     border-radius: 50%;
+}
+
+.about {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#map {
+    height: 500px;
+    width: 500px;
+    background-color: wheat;
+    margin: 0 auto;
 }
