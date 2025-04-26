@@ -68,11 +68,15 @@ header {
 }
 
 #content {
-    min-height: 80vh;
     width: 800px;
     color: white;
     background-color: rgba(0, 0, 0, 0.52);
-    margin: 3em auto;
+    margin: 4rem auto;
+}
+
+#content * {
+    opacity: 0.5;
+    transition: opacity 1.5s;
 }
 
 .home {
@@ -124,7 +128,6 @@ footer {
     padding: 0;
     display: flex;
     flex-direction: column;
-    /* background-color: rgba(0, 0, 0, 0.406); */
     transition: background-color 0.2s;
 }
 

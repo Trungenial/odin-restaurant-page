@@ -5,6 +5,17 @@ const menuBtn = document.querySelector("#menu-btn");
 const aboutBtn = document.querySelector("#about-btn");
 const content = document.querySelector("#content");
 
+function fadeIn() {
+    const allContent = content.querySelectorAll("*");
+
+    allContent.forEach((child) => {
+        child.classList.add("fade-out");
+        setTimeout(() => {
+            child.style.opacity = 1;
+        }, 100);
+    });
+}
+
 menuBtn.addEventListener("click", () => {
     if (!content.classList.contains("menu")) {
         if (content.classList.contains("home")) {
@@ -22,31 +33,33 @@ menuBtn.addEventListener("click", () => {
         aboutBtn.disabled = false;
 
         content.innerHTML = `
-        <div class="dish">
-            <div class="name">1. Bánh xèo miền Bắc</div>
-            <img src="images/banh-xeo-1.jpg" alt="" />
-        </div>
-        <div class="dish">
-            <div class="name">2. Bánh xèo miền Trung</div>
-            <img src="images/banh-xeo-2.jpg" alt="" />
-        </div>
-        <div class="dish">
-            <div class="name">3. Bánh xèo miền Nam</div>
-            <img src="images/banh-xeo-3.jpg" alt="" />
-        </div>
-        <div class="dish">
-            <div class="name">4. Bánh xèo Nhật Bản</div>
-            <img src="images/banh-xeo-4.jpg" alt="" />
-        </div>
-        <div class="dish">
-            <div class="name">5. Bánh xèo Hàn Quốc</div>
-            <img src="images/banh-xeo-5.jpg" alt="" />
-        </div>
-        <div class="dish">
-            <div class="name">6. Bánh xèo Mix</div>
-            <img src="images/banh-xeo-6.jpg" alt="" />
-        </div>
-    `;
+            <div class="dish">
+                <div class="name">1. Bánh xèo miền Bắc</div>
+                <img src="images/banh-xeo-1.jpg" alt="" />
+            </div>
+            <div class="dish">
+                <div class="name">2. Bánh xèo miền Trung</div>
+                <img src="images/banh-xeo-2.jpg" alt="" />
+            </div>
+            <div class="dish">
+                <div class="name">3. Bánh xèo miền Nam</div>
+                <img src="images/banh-xeo-3.jpg" alt="" />
+            </div>
+            <div class="dish">
+                <div class="name">4. Bánh xèo Nhật Bản</div>
+                <img src="images/banh-xeo-4.jpg" alt="" />
+            </div>
+            <div class="dish">
+                <div class="name">5. Bánh xèo Hàn Quốc</div>
+                <img src="images/banh-xeo-5.jpg" alt="" />
+            </div>
+            <div class="dish">
+                <div class="name">6. Bánh xèo Mix</div>
+                <img src="images/banh-xeo-6.jpg" alt="" />
+            </div>
+        `;
+
+        fadeIn();
     }
 });
 
@@ -72,7 +85,7 @@ homeBtn.addEventListener("click", () => {
             <img src="./images/github.svg" alt="github" class="avatar" />
             <h4>Order online or visit us</h4>
         `;
+
+        fadeIn();
     }
 });
-
-aboutBtn.addEventListener("click", () => {});
