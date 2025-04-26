@@ -40,13 +40,16 @@ header {
 }
 
 .navbar button {
+    display: inline-flex;
+    align-items: flex-start;
     font-size: 1.5em;
     background-color: black;
     border: none;
     color: #fff;
     margin: 0 0.5em;
     transition: transform 0.2s;
-    display: inline-block;
+    position: relative;
+    height: 50px;
 }
 
 .navbar button:hover {
@@ -54,21 +57,14 @@ header {
     cursor: pointer;
 }
 
-.navbar button::after {
+.current-bar::after {
     content: "";
     position: absolute;
-    bottom: -2px;
     left: 0;
-    transform: scale(0);
-    background-color: white;
-    height: 2px;
+    bottom: 0;
     width: 100%;
-    transition: transform 0.2s ease-in-out;
-    transform-origin: center;
-}
-
-.navbar button:hover::after {
-    transform: scale(1);
+    height: 2px;
+    background-color: white;
 }
 
 #content {

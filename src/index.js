@@ -9,9 +9,13 @@ menuBtn.addEventListener("click", () => {
     if (!content.classList.contains("menu")) {
         if (content.classList.contains("home")) {
             content.classList.replace("home", "menu");
+            homeBtn.classList.remove("current-bar");
         } else if (content.classList.contains("about")) {
             content.classList.replace("about", "menu");
+            aboutBtn.classList.remove("current-bar");
         }
+
+        menuBtn.classList.add("current-bar");
 
         menuBtn.disabled = true;
         homeBtn.disabled = false;
@@ -50,9 +54,13 @@ homeBtn.addEventListener("click", () => {
     if (!content.classList.contains("home")) {
         if (content.classList.contains("menu")) {
             content.classList.replace("menu", "home");
+            menuBtn.classList.remove("current-bar");
         } else if (content.classList.contains("about")) {
             content.classList.replace("about", "home");
+            aboutBtn.classList.remove("current-bar");
         }
+
+        homeBtn.classList.add("current-bar");
 
         menuBtn.disabled = false;
         homeBtn.disabled = true;
@@ -66,3 +74,5 @@ homeBtn.addEventListener("click", () => {
         `;
     }
 });
+
+aboutBtn.addEventListener("click", () => {});
