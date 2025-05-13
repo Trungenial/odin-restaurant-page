@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************************/
 /***/ ((module) => {
 
-eval("module.exports = \"/images/pancake.jpg\";\n\n//# sourceURL=webpack:///./src/images/pancake.jpg?");
+eval("module.exports = \"./images/pancake.jpg\";\n\n//# sourceURL=webpack:///./src/images/pancake.jpg?");
 
 /***/ }),
 
